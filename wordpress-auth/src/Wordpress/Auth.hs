@@ -35,7 +35,7 @@ Equiped with these and the current time(via
                                    passwordFrament sessionTokens
 @
 
-If this is a REST request or a form submission, you should *always*
+If this is a REST request or a form submission, you should __always__
 validate the nonce, even for requests with no auth cookies. The nonce can
 be pulled out of the @X-WP-Nonce@ header or the @_wpnonce@ query parameter.
 
@@ -66,6 +66,7 @@ module Wordpress.Auth
     , WordpressUserId(..)
     , WordpressUserPass(..)
     , validateCookie
+    , CookieValidationError(..)
     , validateCookieHash
     -- * Session Tokens
     , SessionToken(..)
@@ -130,11 +131,12 @@ newtype CookieToken
     = CookieToken { cookieToken :: Text }
     deriving (Show, Eq)
 
+-- | Potential errors we may encounter while parsing a`WPCookie`.
 data CookieParseError
     = MalformedCookie
     -- ^ The cookie did not have 4 fields separated by `|` characters.
     | InvalidExpiration
-    -- ^ The expiration field of the cookie is not an Integer.
+    -- ^ The `expiration` field of the cookie is not an Integer.
     deriving (Show, Eq)
 
 -- | Parse a `WPCookie` from the body text of an `auth`, `auth_sec`, or
@@ -202,10 +204,15 @@ validateCookie scheme currentTime cookie userPass sessionTokens =
                 (_    , False) -> Left InvalidToken
                 (True , True ) -> Right ()
 
+
+-- | Potential validation errors for a `WPCookie`.
 data CookieValidationError
     = CookieExpired
+    -- ^ The `expiration` time of the cookie is in the past.
     | InvalidHash
+    -- ^ The `hmac` hash in the cookie doesn't match the calculated hash.
     | InvalidToken
+    -- ^ The `token` in the cookie is not valid or expired.
 
 
 
