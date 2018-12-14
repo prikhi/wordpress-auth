@@ -1,0 +1,39 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.1.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 135576f0aee5ccd856e5407946012575122821a1947409a846c14094173e5d45
+
+name:           wordpress-auth
+version:        0.1.0.0
+category:       Web
+homepage:       https://github.com/prikhi/wordpress-auth#readme
+author:         Pavan Rikhi
+maintainer:     pavan.rikhi@gmail.com
+copyright:      BSD3
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+library
+  exposed-modules:
+      Wordpress.Auth
+  other-modules:
+      Paths_wordpress_auth
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , base16-bytestring
+    , bytestring
+    , cryptohash-md5
+    , cryptohash-sha256
+    , hs-php-session
+    , text
+    , time
+  default-language: Haskell2010
