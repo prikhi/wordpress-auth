@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 1b5f2df6c6feb61feab7178e12209e26bccc21a558f8f166d73c70e2f51a1bc2
+-- hash: 64e853c297de146f54d8c27d96cd64aba6fb97bc4592e191f85fc988da4cc233
 
 name:           servant-auth-wordpress
-version:        0.1.0.0
+version:        1.0.0.0
 synopsis:       Authenticate Routes Using Wordpress Cookies
 description:    This package provides a Servant AuthHandler that validates Wordpress's @LOGGED_IN@ authentication Cookie & the @wp_rest@ Nonce, returning either an Authorized user with data or an Anonymous user, or calling an error handler.
                 This allows you to access the currently logged in User when making AJAX requests from a Wordpress site.

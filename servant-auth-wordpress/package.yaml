@@ -3,7 +3,7 @@
 name:
     servant-auth-wordpress
 version:
-    0.1.0.0
+    1.0.0.0
 synopsis:
     Authenticate Routes Using Wordpress Cookies
 description: >

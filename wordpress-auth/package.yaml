@@ -3,7 +3,7 @@
 name:
     wordpress-auth
 version:
-    0.1.0.0
+    1.0.0.0
 synopsis:
     Validate Wordpress Cookies & Nonces; Build Wordpress Hashes & Salts
 description: >
