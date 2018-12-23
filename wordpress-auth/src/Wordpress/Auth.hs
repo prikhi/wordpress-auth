@@ -22,9 +22,9 @@ environmental variables:
 
 Then you'll want to pull the specific cookie's text out of the Cookie
 header(see 'findCookie') & use then 'parseWordpressCookie' to build
-a 'WPCookie'. You should then use the `username` field of the cookie to
+a 'WPCookie'. You should then use the 'username' field of the cookie to
 query your Wordpress database for the User's @ID@('WordpressUserId')
-& @user_pass@('WordpresUserPass') fields as well as the @session_tokens@
+& @user_pass@('WordpressUserPass') fields as well as the @session_tokens@
 User Meta('SessionToken').
 
 Equiped with these and the current time(via
@@ -214,7 +214,7 @@ data WPAuthConfig m a
         { getCookieName :: m CookieName
         -- ^ A monadic action that generates a `CookieName`. You can simply
         -- return a constant value, or do something more complex like
-        -- querying your database for the `siteurl` option.
+        -- querying your database for the @siteurl@ option.
         , loggedInScheme :: AuthScheme
         -- ^ The @LOGGED_IN_KEY@ & @LOGGED_IN_SALT@ from your
         -- @wp-config.php@.
@@ -261,7 +261,7 @@ data WPAuthError
     | UserDataNotFound
     -- ^ The `getUserData` function returned `Nothing`.
     | NoNonce
-    -- ^ The `Request` has no @X-WP-Nonce@ header.
+    -- ^ The @Request@ has no @X-WP-Nonce@ header.
     | InvalidNonce
     -- ^ The nonce couldn't be validated.
     deriving (Show, Eq)
@@ -300,7 +300,7 @@ findCookie name headers = do
 -- headers.
 data CookieHeaderError
     = NoCookieHeader
-    -- ^ The `Request` has no `Cookie` header.
+    -- ^ The Request has no @Cookie@ header.
     | NoCookieMatches
     -- ^ No Cookie matched the expected `CookieName`.
     deriving (Show, Eq)
@@ -316,11 +316,11 @@ findNonce headers query =
 -- Cookies
 
 -- | This represents a Cookie set by a Wordpress authentication scheme
--- (`auth`, `auth_sec`, & `logged_in`).
+-- (@auth@, @auth_sec@, & @logged_in@).
 data WPCookie
     = WPCookie
         { username :: Text
-        -- ^ The `user_login` column for the Wordpress User.
+        -- ^ The @user_login@ column for the Wordpress User.
         , expiration :: POSIXTime
         -- ^ The expiration time of the Cookie.
         , token :: CookieToken
@@ -338,13 +338,13 @@ newtype CookieToken
 -- | Potential errors we may encounter while parsing a `WPCookie`.
 data CookieParseError
     = MalformedCookie
-    -- ^ The cookie did not have 4 fields separated by `|` characters.
+    -- ^ The cookie did not have 4 fields separated by @|@ characters.
     | InvalidExpiration
     -- ^ The `expiration` field of the cookie is not an Integer.
     deriving (Show, Eq)
 
--- | Parse a `WPCookie` from the body text of an `auth`, `auth_sec`, or
--- `logged_in` cookie.
+-- | Parse a `WPCookie` from the body text of an @auth@, @auth_sec@, or
+-- @logged_in@ cookie.
 parseWordpressCookie :: Text -> Either CookieParseError WPCookie
 parseWordpressCookie rawCookie = case T.splitOn "|" rawCookie of
     [username, expiration_, token_, hmac] ->
@@ -424,7 +424,7 @@ data CookieValidationError
 
 -- Hashing / Salting
 
--- | A port of the `wp_hash` function. This performs an 'MD5.hmac' hash on
+-- | A port of the @wp_hash@ function. This performs an 'MD5.hmac' hash on
 -- some text using a secret derived from the authentication scheme's key
 -- & salt constants.
 wordpressHash :: AuthScheme -> Text -> Text
@@ -432,7 +432,7 @@ wordpressHash scheme textToHash =
     let secret = HashSecret $ wordpressSalt scheme
     in  hmacText MD5.hmac secret $ HashMessage textToHash
 
--- | A port of the `wp_salt` function. Builds a secret key for a hashing
+-- | A port of the @wp_salt@ function. Builds a secret key for a hashing
 -- function using the auth scheme's key & salt.
 wordpressSalt :: AuthScheme -> Text
 wordpressSalt AuthScheme { schemeKey, schemeSalt } =
@@ -442,7 +442,7 @@ wordpressSalt AuthScheme { schemeKey, schemeSalt } =
 
 -- Tokens
 
--- | A User Session's Token. These can be found in the `usermeta` Wordpress
+-- | A User Session's Token. These can be found in the @usermeta@ Wordpress
 -- table for rows where @meta_key="session_token"@.
 --
 -- You'll probably want to use `decodeSessionTokens` to parse the tables's
@@ -455,7 +455,7 @@ data SessionToken
     deriving (Show, Eq)
 
 -- | Decode a serialized PHP array containing a User's Session Tokens.
--- These are usually stored as the `session_tokens` usermeta.
+-- These are usually stored as the @session_tokens@ usermeta.
 --
 -- It may be an associative array of tokens to expiration times, or tokens
 -- to an associative array of sub-fields:
@@ -542,7 +542,7 @@ wordpressNonceTick nonceLifetime currentTime =
 -- hash of the current or previous tick.
 validateNonce
     :: AuthScheme -- ^ The Wordpress site's @nonce@ scheme constants - @NONCE_KEY@ & @NONCE_SALT@.
-    -> Maybe CookieToken -- ^ A token from the `logged_in` cookie.
+    -> Maybe CookieToken -- ^ A token from the @logged_in@ cookie.
     -> NonceTick  -- ^ The current tick number.
     -> Maybe WordpressUserId -- ^ The ID of the currently logged in User.
     -> Text  -- ^ The @action@ of the nonce (e.g., @"wp_rest"@ for API requests).
@@ -584,22 +584,22 @@ data AuthScheme
         }
     deriving (Show, Eq)
 
--- | An auth scheme's `_KEY` constant, usually defined in your Wordpress
--- site's @wp-config.php@. E.g., `LOGGED_IN_KEY`
+-- | An auth scheme's @_KEY@ constant, usually defined in your Wordpress
+-- site's @wp-config.php@. E.g., @LOGGED_IN_KEY@
 newtype WordpressKey
     = WordpressKey { unKey :: Text }
     deriving (Show, Eq)
--- | An auth scheme's `_SALT` constant, usually defined in your Wordpress
--- site's @wp-config.php@. E.g., `LOGGED_IN_SALT`
+-- | An auth scheme's @_SALT@ constant, usually defined in your Wordpress
+-- site's @wp-config.php@. E.g., @LOGGED_IN_SALT@
 newtype WordpressSalt
     = WordpressSalt { unSalt :: Text }
     deriving (Show, Eq)
 
--- | Build the `_KEY` value for an authentiation scheme.
+-- | Build the @_KEY@ value for an authentiation scheme.
 wpConfigKey :: Text -> WordpressKey
 wpConfigKey = WordpressKey
 
--- | Build the `_SALT` value for an authentiation scheme.
+-- | Build the @_SALT@ value for an authentiation scheme.
 wpConfigSalt :: Text -> WordpressSalt
 wpConfigSalt = WordpressSalt
 
@@ -629,6 +629,6 @@ hashText :: (B.ByteString -> B.ByteString) -> HashMessage -> Text
 hashText hasher =
     decodeUtf8 . Base16.encode . hasher . encodeUtf8 . hashMessage
 
--- Join the different text to hash together by `|` like Wordpress expects.
+-- Join the different text to hash together by @|@ like Wordpress expects.
 joinHashParts :: [Text] -> Text
 joinHashParts = T.intercalate "|"
