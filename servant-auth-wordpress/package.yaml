@@ -1,31 +1,53 @@
-name:                servant-auth-wordpress
-version:             0.1.0.0
-#synopsis:
-#description:
-homepage:            https://github.com/prikhi/wordpress-auth#readme
-license:             BSD3
-author:              Pavan Rikhi
-maintainer:          pavan.rikhi@gmail.com
-copyright:           BSD3
-category:            Web, Servant
+---
+
+name:
+    servant-auth-wordpress
+version:
+    0.1.0.0
+synopsis:
+    Authenticate Routes Using Wordpress Cookies
+description: >
+    This package provides a Servant AuthHandler that validates Wordpress's
+    @LOGGED_IN@ authentication Cookie & the @wp_rest@ Nonce, returning either
+    an Authorized user with data or an Anonymous user, or calling an error
+    handler.
+
+    This allows you to access the currently logged in User when making AJAX
+    requests from a Wordpress site.
+
+    Check out the @wordpress-auth@ package for lower-level Wordpress Cookie &
+    Nonce manipulation.
+homepage:
+    https://github.com/prikhi/wordpress-auth#readme
+license:
+    BSD3
+author:
+    Pavan Rikhi
+maintainer:
+    pavan.rikhi@gmail.com
+copyright:
+    BSD3
+category:
+    Web, Servant
 extra-source-files:
-- README.md
+    - README.md
 
 ghc-options:
-- -Wall
-- -Wcompat
-- -Wincomplete-record-updates
-- -Wincomplete-uni-patterns
-- -Wredundant-constraints
+    - -Wall
+    - -Wcompat
+    - -Wincomplete-record-updates
+    - -Wincomplete-uni-patterns
+    - -Wredundant-constraints
 
 dependencies:
-  - base >= 4.7 && < 5
-  - mtl
-  - servant-server
-  - text
-  - time
-  - wai
-  - wordpress-auth
+    - base >= 4.7 && < 5
+    - mtl
+    - servant-server
+    - text
+    - time
+    - wai
+    - wordpress-auth
 
 library:
-    source-dirs:      src
+    source-dirs:
+        src
