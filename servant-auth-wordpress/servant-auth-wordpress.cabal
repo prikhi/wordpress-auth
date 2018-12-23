@@ -1,0 +1,38 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.1.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 594bebeeac20c79281d270e8da4c49de2d69862637a729977f559a31954273d6
+
+name:           servant-auth-wordpress
+version:        0.1.0.0
+category:       Web, Servant
+homepage:       https://github.com/prikhi/wordpress-auth#readme
+author:         Pavan Rikhi
+maintainer:     pavan.rikhi@gmail.com
+copyright:      BSD3
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+library
+  exposed-modules:
+      Servant.Auth.Wordpress
+  other-modules:
+      Paths_servant_auth_wordpress
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , mtl
+    , servant-server
+    , text
+    , time
+    , wai
+    , wordpress-auth
+  default-language: Haskell2010
