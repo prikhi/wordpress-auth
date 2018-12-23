@@ -1,5 +1,7 @@
 # Haskell Wordpress Authentication
 
+[![Build Status](https://travis-ci.org/prikhi/wordpress-auth.svg?branch=master)](https://travis-ci.org/prikhi/wordpress-auth)
+
 This repository contains Haskell packages for authenticating Wordpress cookies
 & nonces.
 
