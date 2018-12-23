@@ -6,7 +6,8 @@ the 'wpAuthHandler' function. The config defines some specifics about your
 Wordpress site, as well as functions to pull a User's authentication data
 & to handle authentication failures.
 
-You must define the `ServerData` type instance yourself:
+You must define the 'Servant.Server.Experimental.Auth.AuthServerData' type
+instance yourself:
 
 > type instance "AuthServerData" ("AuthProtect" \"wp\") = WPAuthorization (Entity User)
 
