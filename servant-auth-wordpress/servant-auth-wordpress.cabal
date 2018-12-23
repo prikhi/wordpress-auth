@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: e8d1fd3db7b3103bae56af8b0805e1aed0a655dca23fffe886d7e678851c7c99
+-- hash: 1b5f2df6c6feb61feab7178e12209e26bccc21a558f8f166d73c70e2f51a1bc2
 
 name:           servant-auth-wordpress
 version:        0.1.0.0
@@ -22,6 +22,7 @@ license-file:   LICENSE
 build-type:     Simple
 extra-source-files:
     README.md
+    CHANGELOG.md
 
 library
   exposed-modules:

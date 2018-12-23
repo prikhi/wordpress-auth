@@ -33,6 +33,7 @@ category:
     Web
 extra-source-files:
     - README.md
+    - CHANGELOG.md
 
 ghc-options:
     - -Wall

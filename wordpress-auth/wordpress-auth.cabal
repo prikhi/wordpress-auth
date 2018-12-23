@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 0a918f490a7f7478f8305d452361e83e39f52fcb36614ff98ab474b3bcff4f6a
+-- hash: d8605bb754b8f6e08d202b6ebb44e7f74a2ed4e5a44c58387fea5d757ac9f9fa
 
 name:           wordpress-auth
 version:        0.1.0.0
@@ -23,6 +23,7 @@ license-file:   LICENSE
 build-type:     Simple
 extra-source-files:
     README.md
+    CHANGELOG.md
 
 library
   exposed-modules:
