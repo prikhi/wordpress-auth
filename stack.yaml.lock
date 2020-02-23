@@ -3,14 +3,7 @@
 # For more information, please see the documentation at:
 #   https://docs.haskellstack.org/en/stable/lock_files
 
-packages:
-- completed:
-    hackage: hs-php-session-0.0.9.3@sha256:5355cdb191d8dc4ac52df6acb186ca1a81ddfa243dd81e9208ae21c76ba7ee78,1084
-    pantry-tree:
-      size: 623
-      sha256: 9ac719cc62e9b006600e83aa4dcabb475ed6b7ef74c80e86b223f00c39fe71a8
-  original:
-    hackage: hs-php-session-0.0.9.3
+packages: []
 snapshots:
 - completed:
     size: 488576
