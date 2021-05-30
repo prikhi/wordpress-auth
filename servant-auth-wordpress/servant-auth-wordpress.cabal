@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.1.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 037b857d32293dd0c96991bdf7ea53f7c6907f82735b00f076cb57b765fad23b
+-- hash: 9f19fc16fe5a824fe4039670e409b56460bce95f9e1aefe091e5db2a5df6b4d9
 
 name:           servant-auth-wordpress
 version:        1.0.0.1
@@ -36,10 +36,10 @@ library
   ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
-    , mtl >=2 && <3
-    , servant-server >=0.14 && <0.17
-    , text >=1 && <2
-    , time >=1 && <2
-    , wai >=3 && <4
+    , mtl ==2.*
+    , servant-server >=0.14 && <0.19
+    , text ==1.*
+    , time ==1.*
+    , wai ==3.*
     , wordpress-auth >=1 && <1.1
   default-language: Haskell2010
