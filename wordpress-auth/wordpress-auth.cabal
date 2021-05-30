@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: fee1c2c853a003a4ea23072386c1961578b01a4209f510e6b5afcac159d67f85
+-- hash: 82c4605ae4faddea533a20c6753a62d06b98d4f614812c8df4dbf45f001774d6
 
 name:           wordpress-auth
-version:        1.0.0.0
+version:        1.0.0.1
 synopsis:       Validate Wordpress Cookies & Nonces; Build Wordpress Hashes & Salts
 description:    This package is used for validating Cookie data & Nonces from Wordpress.
                 .
@@ -38,7 +38,7 @@ library
   ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
   build-depends:
       base >=4.7 && <5
-    , base16-bytestring ==0.1.*
+    , base16-bytestring <1.1
     , bytestring >=0.10 && <0.12
     , cookie ==0.4.*
     , cryptohash-md5 ==0.11.*

@@ -3,7 +3,7 @@
 name:
     wordpress-auth
 version:
-    1.0.0.0
+    1.0.0.1
 synopsis:
     Validate Wordpress Cookies & Nonces; Build Wordpress Hashes & Salts
 description: >
@@ -47,7 +47,7 @@ ghc-options:
 
 dependencies:
     - base >= 4.7 && < 5
-    - base16-bytestring ^>= 0.1
+    - base16-bytestring < 1.1
     - bytestring >= 0.10 && < 0.12
     - cookie ^>= 0.4
     - cryptohash-md5 ^>= 0.11
