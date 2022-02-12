@@ -45,7 +45,7 @@ ghc-options:
 dependencies:
     - base >= 4.7 && < 5
     - mtl >= 2 && < 3
-    - servant-server >= 0.14 && < 0.19
+    - servant-server >= 0.14 && < 0.20
     - text >= 1 && < 2
     - time >= 1 && < 2
     - wai >= 3  && < 4

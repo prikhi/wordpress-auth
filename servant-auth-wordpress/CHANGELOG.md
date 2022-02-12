@@ -1,5 +1,9 @@
 # ChangeLog
 
+## master
+
+Support Servant v0.19
+
 ## v1.0.0.2
 
 Support Servant v0.17 & v0.18
