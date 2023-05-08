@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.34.4.
+-- This file has been generated from package.yaml by hpack version 0.35.1.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 5731b8563a9dc5e6d112fe079abe6b9c3d29cae679d889f0ba53eadaa82d0d43
+-- hash: 3649f7cb1a207ecf421574df69cffc293d7c44a6d94ae3e5f30d375c11adfbc1
 
 name:           servant-auth-wordpress
 version:        1.0.0.2
@@ -38,7 +38,7 @@ library
       base >=4.7 && <5
     , mtl ==2.*
     , servant-server >=0.14 && <0.20
-    , text ==1.*
+    , text >=1 && <3
     , time ==1.*
     , wai ==3.*
     , wordpress-auth >=1 && <1.1

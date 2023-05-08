@@ -2,7 +2,8 @@
 
 ## master
 
-Support Servant v0.19
+* Support Text v2
+* Support Servant v0.19
 
 ## v1.0.0.2
 
